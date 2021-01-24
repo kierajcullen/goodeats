@@ -1,0 +1,69 @@
+body {
+  background-color: black;
+}
+
+.jumbotron {
+  text-align: center;
+  /* background-color: transparent; */
+  color: white;
+  /* border-radius: 0; */
+  border-bottom: 5px solid white;
+}
+.fas {
+  color: maroon;
+  font-size: 24px;
+}
+
+.row {
+  /* relative to the font-size of the root element */
+  margin-top: 6rem;
+  margin-left: 4rem;
+  white-space: pre-wrap;
+  height: 80px;
+  display: flex;
+}
+
+.userInput {
+  background-color: white;
+  color: #000000;
+  border: 3px dashed black;
+  padding: 10px;
+  text-align: center;
+}
+
+/* 
+.letter {
+  width: 30px;
+  height: 30px;
+  border-style: solid;
+  padding: 2px;
+  float: left;
+  margin: 2px;
+}
+
+.letter-button-color {
+  color: darkcyan;
+}
+
+.fridge-color {
+  color: orange;
+}
+
+#display {
+  margin-top: 78px;
+  height: 500px;
+  width: 220px;
+  margin-left: 60px;
+}
+
+#buttons {
+  padding-top: 60px;
+}
+
+#clear {
+  margin-left: 20px;
+  font-size: 25px;
+  color: black;
+  border-style: solid;
+  width: 100px;
+} */
