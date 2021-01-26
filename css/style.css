@@ -25,6 +25,7 @@ body {
 
 .userInput {
   background-color: white;
+  font-size: large;
   color: #000000;
   border: 3px solid black;
   padding: 55px;
@@ -44,6 +45,7 @@ body {
 .clickMe {
   margin-top: 200px;
   margin-left: 300px;
+  font-size: unset;
 }
 
 /* 
