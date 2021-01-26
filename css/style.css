@@ -21,7 +21,6 @@ body {
   white-space: pre-wrap;
   height: 80px;
   display: flex;
-  
 }
 
 .userInput {
@@ -31,18 +30,20 @@ body {
   padding: 55px;
   text-align: center;
   height: 10px;
-  
-  
 }
 .container {
-  height: 500px;
+  height: 600px;
   width: 400px;
   background-color: gray;
   margin-top: 20px;
   float: left;
   padding-top: 10px;
-  margin-left: 20px;
-  
+  margin-left: 150px;
+}
+
+.clickMe {
+  margin-top: 200px;
+  margin-left: 300px;
 }
 
 /* 
