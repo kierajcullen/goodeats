@@ -1,0 +1,86 @@
+body {
+  background-color: black;
+}
+
+.jumbotron {
+  text-align: center;
+  /* background-color: transparent; */
+  color: white;
+  /* border-radius: 0; */
+  border-bottom: 5px solid white;
+}
+.fas {
+  color: maroon;
+  font-size: 24px;
+}
+
+.row {
+  /* relative to the font-size of the root element */
+  margin-top: 2rem;
+  margin-left: 4rem;
+  white-space: pre-wrap;
+  height: 80px;
+  display: flex;
+}
+
+.userInput {
+  background-color: white;
+  font-size: large;
+  color: #000000;
+  border: 3px solid black;
+  padding: 55px;
+  text-align: center;
+  height: 10px;
+}
+.container {
+  height: 600px;
+  width: 400px;
+  background-color: gray;
+  margin-top: 20px;
+  float: left;
+  padding-top: 10px;
+  margin-left: 150px;
+}
+
+.clickMe {
+  margin-top: 200px;
+  margin-left: 300px;
+  font-size: unset;
+}
+
+/* 
+.letter {
+  width: 30px;
+  height: 30px;
+  border-style: solid;
+  padding: 2px;
+  float: left;
+  margin: 2px;
+}
+
+.letter-button-color {
+  color: darkcyan;
+}
+
+.fridge-color {
+  color: orange;
+}
+
+#display {
+  margin-top: 78px;
+  height: 500px;
+  width: 220px;
+  margin-left: 60px;
+}
+
+#buttons {
+  padding-top: 60px;
+}
+
+#clear {
+  margin-left: 20px;
+  font-size: 25px;
+  color: black;
+  border-style: solid;
+  width: 100px;
+} */
