@@ -80,7 +80,7 @@ body {
   background: white;
   border-radius: 32px 4px 4px 32px;
   box-shadow: inset 4px 6px 0px 0px #e4e0ce;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to bottom,
     transparent 6px,
     #e4e0ce 8px,
@@ -107,7 +107,7 @@ body {
     #e4e0ce 48px,
     transparent 50px
   );
-}
+} */
 .book:before {
   height: 20px;
   width: 160px;
