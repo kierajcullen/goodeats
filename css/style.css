@@ -16,7 +16,7 @@ body {
 
 .row {
   /* relative to the font-size of the root element */
-  margin-top: 6rem;
+  margin-top: 2rem;
   margin-left: 4rem;
   white-space: pre-wrap;
   height: 80px;
@@ -25,17 +25,36 @@ body {
 
 .userInput {
   background-color: white;
-  width: 20rem;
+  font-size: large;
   color: #000000;
-  border: 3px dashed black;
-  padding: 10px;
+  border: 3px solid black;
+  padding: 55px;
   text-align: center;
+  height: 10px;
+}
+.container {
+  height: 600px;
+  width: 400px;
+  background-color: gray;
+  margin-top: 20px;
+  float: left;
+  padding-top: 10px;
+  margin-left: 150px;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  position: absolute;
+.clickMe {
+  margin-top: 200px;
+  margin-left: 300px;
+  font-size: unset;
+}
+/* 
+.letter {
+  width: 30px;
+  height: 30px;
+  border-style: solid;
+  padding: 2px;
+  float: left;
+  margin: 2px;
 }
 html,
 body {
@@ -108,14 +127,6 @@ body {
     transparent 50px
   );
 } */
-.book:before {
-  height: 20px;
-  width: 160px;
-  right: 40px;
-  top: 72px;
-  background: #d11f2f;
-  border-radius: 20px;
-  box-shadow: 0px 36px #d11f2f;
-}
+/* .inputContainer{
 
-/* change the height of the  */
+} */
