@@ -36,7 +36,7 @@ function getRecipe(search) {
       var recipeImg = $("<img>").attr({
         src: recipeInformation[i].recipe.image,
         alt: "Recipe Image",
-        height: "50px",
+        height: "100px",
       });
       // yoo you can append more than on item in append JQUERY!!
       recipeDiv.append(title, recipeImg);
