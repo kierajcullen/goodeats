@@ -47,34 +47,7 @@ body {
   margin-left: 300px;
   font-size: unset;
 }
-/* 
-.letter {
-  width: 30px;
-  height: 30px;
-  border-style: solid;
-  padding: 2px;
-  float: left;
-  margin: 2px;
-}
-html,
-body {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-/* body{
-  background: #FFC967;
-} */
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-*:before,
-*:after {
-  content: "";
-  position: absolute;
-}
+
 .book {
   width: 280px;
   height: 420px;
