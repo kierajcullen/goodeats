@@ -30,11 +30,23 @@ function getRecipe(search) {
     console.log(response.hits);
     var recipeInformation = response.hits;
     for (var i = 0; i < recipeInformation.length; i++) {
-      console.log(recipeInformation[i].recipe.label);
-      $(".recipes").text(recipeInformation[i].recipe.label);
-      $(".url").text(recipeInformation[i].recipe.url);
+      // make a div
+      var recipeDiv = $("<div>").addClass("recipeDiv");
+      var title = $("<h3>").text(recipeInformation[i].recipe.label);
+      var recipeImg = $("<img>").attr({
+        src: recipeInformation[i].recipe.image,
+        alt: "Recipe Image",
+        height: "50px",
+      });
+      // yoo you can append more than on item in append JQUERY!!
+      recipeDiv.append(title, recipeImg);
+
+      $(".recipeReturn").append(recipeDiv);
+      // console.log(recipeInformation[i].recipe.label);
+      // $(".recipes").text(recipeInformation[i].recipe.label);
+      // $(".url").text(recipeInformation[i].recipe.url);
       //randomize output somehow
-      var randomRecipe = Math.floor(Math.random() * displayRecipe.length);
+      // var randomRecipe = Math.floor(Math.random() * displayRecipe.length);
       // var randomRecipe = displayRecipe[randomRecipe];
     }
   });
