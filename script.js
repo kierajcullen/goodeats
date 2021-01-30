@@ -1,6 +1,5 @@
 // Declare Variable
-var appKey = "f6ebefb8e953ba8b5064c032bfe9e61f";
-var appID = "e24e99ff";
+
 //add search parameter
 // var queryURL = `https://api.edamam.com/search?q=chicken&app_id=${appID}&app_key=${appKey}`;
 
@@ -17,6 +16,8 @@ function searchRecipe() {
 }
 
 function getRecipe(search) {
+  var appKey = "f6ebefb8e953ba8b5064c032bfe9e61f";
+  var appID = "e24e99ff";
   // var queryURL = weatherAPI + "q=" + search + units + APIkey;
   var queryURL = `https://api.edamam.com/search?q=${search}&app_id=${appID}&app_key=${appKey}`;
   $.ajax({
@@ -33,15 +34,23 @@ function getRecipe(search) {
       // make a div
       var recipeDiv = $("<div>").addClass("recipeDiv");
       var title = $("<h3>").text(recipeInformation[i].recipe.label);
+      // var recipeUrl = $(recipeDiv).text(recipeInformation[i].recipe.url);
+      // allow you to put html
+      // template literals
+      var recipeUrl = $("<p>").html(
+        `<a href=${recipeInformation[i].recipe.url} target="_blank"> link to recipe</a>`
+      );
       var recipeImg = $("<img>").attr({
         src: recipeInformation[i].recipe.image,
         alt: "Recipe Image",
         height: "100px",
       });
-      // yoo you can append more than on item in append JQUERY!!
-      recipeDiv.append(title, recipeImg);
 
-      $(".recipeReturn").append(recipeDiv);
+      console.log(recipeInformation[i].recipe.uri);
+      //grab url from json and add link to image
+      recipeDiv.append(title, recipeImg, recipeUrl);
+
+      $(".recipe-return").append(recipeDiv);
       // console.log(recipeInformation[i].recipe.label);
       // $(".recipes").text(recipeInformation[i].recipe.label);
       // $(".url").text(recipeInformation[i].recipe.url);
@@ -53,7 +62,8 @@ function getRecipe(search) {
 }
 $(".clickMe").on("click", searchRecipe);
 
-function displayRecipe() {
+// create seperate script file for localStorage
+function recipeHistory() {
   var localSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
   // var localSearchHistory = getLocalSearchHistory;
   console.log(localSearchHistory);
