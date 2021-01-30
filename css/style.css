@@ -47,41 +47,58 @@ body {
   margin-left: 300px;
   font-size: unset;
 }
-/* 
-.letter {
-  width: 30px;
-  height: 30px;
-  border-style: solid;
-  padding: 2px;
-  float: left;
-  margin: 2px;
-}
 
-.letter-button-color {
-  color: darkcyan;
+.book {
+  width: 280px;
+  height: 420px;
+  /* transform: translate(-50%, -50%); */
+  top: 50%;
+  left: 50%;
+  background: #f33139;
+  border-radius: 20px 16px 12px 32px;
+  background-image: linear-gradient(
+    to right,
+    #d11f2f 48px,
+    #ba0716 50px,
+    transparent 50px
+  );
+  /* box-shadow:  2px 6px 40px 0px #FEA600 */
 }
-
-.fridge-color {
-  color: orange;
-}
-
-#display {
-  margin-top: 78px;
-  height: 500px;
-  width: 220px;
-  margin-left: 60px;
-}
-
-#buttons {
-  padding-top: 60px;
-}
-
-#clear {
-  margin-left: 20px;
-  font-size: 25px;
-  color: black;
-  border-style: solid;
-  width: 100px;
+.book:after {
+  height: 52px;
+  width: 274px;
+  bottom: 6px;
+  right: 0px;
+  background: white;
+  border-radius: 32px 4px 4px 32px;
+  box-shadow: inset 4px 6px 0px 0px #e4e0ce;
+  /* background-image: linear-gradient(
+    to bottom,
+    transparent 6px,
+    #e4e0ce 8px,
+    transparent 8px,
+    transparent 12px,
+    #e4e0ce 12px,
+    transparent 14px,
+    transparent 18px,
+    #e4e0ce 18px,
+    transparent 20px,
+    transparent 24px,
+    #e4e0ce 24px,
+    transparent 26px,
+    transparent 30px,
+    #e4e0ce 30px,
+    transparent 32px,
+    transparent 36px,
+    #e4e0ce 36px,
+    transparent 38px,
+    transparent 42px,
+    #e4e0ce 42px,
+    transparent 44px,
+    transparent 48px,
+    #e4e0ce 48px,
+    transparent 50px
+  );
 } */
 /* .inputContainer{
 
