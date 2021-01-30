@@ -103,10 +103,20 @@ body {
   /* .inputContainer{ */
 }
 
+.inputContainer {
+  padding: 0;
+  align-items: center;
+  text-align: center;
+}
+
 .recipeDiv {
   background-color: white;
   padding: 20px;
   margin: 20px;
   display: inline-block;
+  text-align: center;
+}
+
+.spoon {
   text-align: center;
 }

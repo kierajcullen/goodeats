@@ -1,13 +1,13 @@
 // Declare Variable
 
-//add search parameter
-// var queryURL = `https://api.edamam.com/search?q=chicken&app_id=${appID}&app_key=${appKey}`;
-
 var displayRecipe = [];
+// hide recipe search history at the beginning of the script, display once the user.... idk, clicks the button ?
+$(".save-recipes").hide();
 
 function searchRecipe() {
   // trim and set value
-  var recipeSearch = $("#input1").val().trim();
+  var recipeSearch = $("#recipe-search").val().trim();
+  // var recipeSearch = $("#input2").val().trim();
   if (recipeSearch === "") {
     return;
   }
@@ -16,6 +16,9 @@ function searchRecipe() {
 }
 
 function getRecipe(search) {
+  // empty out the whole div
+  $(".recipe-return").empty();
+
   var appKey = "f6ebefb8e953ba8b5064c032bfe9e61f";
   var appID = "e24e99ff";
   // var queryURL = weatherAPI + "q=" + search + units + APIkey;
@@ -38,19 +41,19 @@ function getRecipe(search) {
       // allow you to put html
       // template literals
       var recipeUrl = $("<p>").html(
-        `<a href=${recipeInformation[i].recipe.url} target="_blank"> link to recipe</a>`
+        `<a href=${recipeInformation[i].recipe.url} target="_blank"> Click Here for Recipe Information</a>`
       );
       var recipeImg = $("<img>").attr({
         src: recipeInformation[i].recipe.image,
         alt: "Recipe Image",
         height: "100px",
       });
-
       console.log(recipeInformation[i].recipe.uri);
       //grab url from json and add link to image
       recipeDiv.append(title, recipeImg, recipeUrl);
 
       $(".recipe-return").append(recipeDiv);
+      $(".save-recipes").show();
       // console.log(recipeInformation[i].recipe.label);
       // $(".recipes").text(recipeInformation[i].recipe.label);
       // $(".url").text(recipeInformation[i].recipe.url);
@@ -60,7 +63,43 @@ function getRecipe(search) {
     }
   });
 }
-$(".clickMe").on("click", searchRecipe);
+
+function searchByIngredient() {
+  // new ajax call here
+  // get back every singlle input and add to our array
+  var getIngredients = [];
+  var ingLog = $(".ing");
+  console.log(ingLog);
+  for (var i = 0; i < ingLog.length; i++) {
+    var currentInput = $(ingLog[i]).val().trim();
+    // only do this if there is something in the input field
+    if (currentInput != "") {
+      console.log(currentInput);
+      // add to get ingredients array
+      getIngredients.push(currentInput);
+    }
+  }
+  //now convert to string... converting array to string with commas
+  var ingredientString = getIngredients.toString();
+  console.log(ingredientString);
+  var apiKey = "9d5a77b29f904cdf819fe2652076ae55";
+  var queryUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientString}&apiKey=${apiKey}`;
+  $.ajax({
+    url: queryUrl,
+    method: "GET",
+  }).then(function (response) {
+    // response returns an array in this case, see console
+    for (var i = 0; i < response.length; i++) {
+      console.log(response[i]);
+    }
+    console.log(queryUrl);
+    console.log(response);
+  });
+}
+
+$("#recipe-search-btn").on("click", searchRecipe);
+
+$(".clickMe").on("click", searchByIngredient);
 
 // create seperate script file for localStorage
 function recipeHistory() {
