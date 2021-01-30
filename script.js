@@ -32,8 +32,10 @@ function getRecipe(search) {
     for (var i = 0; i < recipeInformation.length; i++) {
       console.log(recipeInformation[i].recipe.label);
       $(".recipes").text(recipeInformation[i].recipe.label);
+      $(".url").text(recipeInformation[i].recipe.url);
+      //randomize output somehow
       var randomRecipe = Math.floor(Math.random() * displayRecipe.length);
-      var randomRecipe = displayRecipe[randomRecipe];
+      // var randomRecipe = displayRecipe[randomRecipe];
     }
   });
 }
