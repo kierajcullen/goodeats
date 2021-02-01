@@ -8,10 +8,11 @@ body {
   color: white;
   /* border-radius: 0; */
   border-bottom: 5px solid white;
+  /*border: 50px;*/
 }
 .fas {
   color: maroon;
-  font-size: 24px;
+  font-size: 75px;
 }
 
 .row {
@@ -124,4 +125,15 @@ body {
 }
 .ingredient-return {
   color: white;
+}
+
+h1 {
+  font-size: 100px;
+  font-family: Fantasy;
+  margin: 0;
+}
+
+.lead {
+  font-size: 30px;
+  font-family: Fantasy;
 }
