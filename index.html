@@ -19,25 +19,36 @@
     <div class="container">
       <!--<img src="fridge.jpg" alt="fridge" width="300" height="300">-->
       <div class="row">
-        <div class="col-8 userInput">What's in your Fridge?</div>
+        <div class="userInput">What's in your Fridge?</div>
       </div>
+      <div class="search-container">
       <div class="spoon">
         <h6>Search By Recipe</h6>
         <input id="recipe-search">
         <button id="recipe-search-btn">Search</button>
       </div>
-      <button class="clickMe">Click Me</button>
+      <div class="inputContainer">
+        <h6>Search By Ingredient</h6>
+        <input class="ing" id="ingredient-search"></input>
+        <button class="clickMe" id="ingredient-search-btn">Search</button>
+      </div>
+    </div>
+      <!-- <button class="clickMe">Click Me</button>
       <ul class="inputContainer">
-        <input class="ing">
-        <input class="ing">
-        <input class="ing">
-        <input class="ing">
-        <input class="ing">
-        <input class="ing">
-      </ul>
+        <input class="ing"></input>
+        <input class="ing"></input>
+        <input class="ing"></input>
+        <input class="ing"></input>
+        <input class="ing"></input>
+        <input class="ing"></input>
+      </ul> -->
     </div>
     <!-- Add the book to this section -->
-    <div class="recipe-return"></div>
+    <div class="recipe-return">
+    </div>
+
+    </div>
+
     <!-- <textarea class="recipes"></textarea>-->
     <!-- style this and link to local storage -->
     <input class="save-recipes">
