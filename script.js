@@ -58,8 +58,9 @@ function getRecipe(search) {
 }
 
 function searchByIngredient() {
+  $(".recipe-return").empty();
   // new ajax call here
-  // get back every singlle input and add to our array
+  // get back every single input and add to our array
   var getIngredients = [];
   var ingLog = $(".ing");
   console.log(ingLog);
@@ -84,11 +85,43 @@ function searchByIngredient() {
     // response returns an array in this case, see console
     for (var i = 0; i < response.length; i++) {
       console.log(response[i]);
+      var ingDiv = $("<div>").addClass("recipeDiv");
+      var title = $("<h3>").text(response[i].title);
+      var recipeUrl = $("<p>").html(
+        `<a href=${response[i].image} target="_blank"> Click Here for Recipe Information</a>`
+      );
+      $(ingDiv).append(title);
+      console.log(title);
+      $(".recipe-return").append(title);
     }
     console.log(queryUrl);
     console.log(response);
   });
 }
+
+// var recipeInformation = response.hits;
+// for (var i = 0; i < recipeInformation.length; i++) {
+//   // make a div
+//   var recipeDiv = $("<div>").addClass("recipeDiv");
+//   var title = $("<h3>").text(recipeInformation[i].recipe.label);
+//   // var recipeUrl = $(recipeDiv).text(recipeInformation[i].recipe.url);
+//   // allow you to put html
+//   // template literals
+//   var recipeUrl = $("<p>").html(
+//     `<a href=${recipeInformation[i].recipe.url} target="_blank"> Click Here for Recipe Information</a>`
+//   );
+//   var recipeImg = $("<img>").attr({
+//     src: recipeInformation[i].recipe.image,
+//     alt: "Recipe Image",
+//     height: "100px",
+//   });
+//   console.log(recipeInformation[i].recipe.uri);
+//   //grab url from json and add link to image
+//   recipeDiv.append(title, recipeImg, recipeUrl);
+
+//   $(".recipe-return").append(recipeDiv);
+//   $(".save-recipes").show();
+// }
 
 $("#recipe-search-btn").on("click", searchRecipe);
 

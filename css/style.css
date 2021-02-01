@@ -42,10 +42,12 @@ body {
   margin-left: 150px;
 }
 
-.clickMe {
-  margin-top: 200px;
-  margin-left: 300px;
-  font-size: unset;
+.search-container {
+  position: relative;
+  top: 200px;
+  /* margin-top: 200px;
+  margin-left: 300px; */
+  /* font-size: unset; */
 }
 
 .book {
@@ -119,4 +121,7 @@ body {
 
 .spoon {
   text-align: center;
+}
+.ingredient-return {
+  color: white;
 }
