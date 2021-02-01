@@ -1,5 +1,4 @@
 // Declare Variable
-
 var displayRecipe = [];
 // hide recipe search history at the beginning of the script, display once the user.... idk, clicks the button ?
 $(".save-recipes").hide();
@@ -54,12 +53,6 @@ function getRecipe(search) {
 
       $(".recipe-return").append(recipeDiv);
       $(".save-recipes").show();
-      // console.log(recipeInformation[i].recipe.label);
-      // $(".recipes").text(recipeInformation[i].recipe.label);
-      // $(".url").text(recipeInformation[i].recipe.url);
-      //randomize output somehow
-      // var randomRecipe = Math.floor(Math.random() * displayRecipe.length);
-      // var randomRecipe = displayRecipe[randomRecipe];
     }
   });
 }
