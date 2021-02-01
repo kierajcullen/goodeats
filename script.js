@@ -97,6 +97,7 @@ function searchByIngredient() {
   });
 }
 
+
 $("#recipe-search-btn").on("click", searchRecipe);
 
 $(".clickMe").on("click", searchByIngredient);
