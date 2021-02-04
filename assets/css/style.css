@@ -1,5 +1,6 @@
 :root {
   --bronze: #bf6900;
+  /* font-family: Fantasy; */
 }
 
 body {
@@ -11,8 +12,9 @@ body {
   text-align: center;
   color: white;
   border: 3px solid black;
+  border-radius: 20px;
   padding: 10px;
-  font-size: large;
+  font-size: xx-large;
   background: var(--bronze);
 }
 
@@ -41,6 +43,8 @@ body {
   margin: 1.2rem 0;
   display: flex;
   justify-content: center;
+  border-radius: 10px;
+  font-size: large;
 }
 .search-recipe,
 .search-btn {
@@ -57,10 +61,12 @@ body {
   background: var(--bronze);
   color: #fff;
   border: none;
+  border-radius: 20px;
 }
 
 #meal {
   text-align: center;
+  padding: 30px;
 }
 .meal-item {
   overflow: hidden;
@@ -119,7 +125,8 @@ body {
   padding-top: 3px;
   top: 5px;
 }
-.recipe-title {
+.recipe-title,
+li {
   text-transform: capitalize;
 }
 
@@ -132,4 +139,12 @@ body {
   margin: 0px auto;
   display: block;
   max-width: 100%;
+}
+footer {
+  text-align: center;
+}
+#recipe-history-btn,
+#hide-search {
+  border-radius: 20px;
+  font-size: large;
 }
