@@ -64,7 +64,7 @@ body {
   border-radius: 20px;
 }
 
-#recipe {
+#meal {
   text-align: center;
   padding: 30px;
 }
@@ -134,7 +134,7 @@ li {
 .recipe-instructions {
   padding: 3% 3% 0;
 }
-.recipe-img img {
+.recipe-meal-img img {
   width: 300px;
   /* height: auto; */
   margin: 0px auto;
