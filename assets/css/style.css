@@ -1,8 +1,5 @@
-* {
-  justify-content: center;
-}
 :root {
-  --tenne-tawny: #bf6900;
+  --bronze: #bf6900;
 }
 
 body {
@@ -16,18 +13,11 @@ body {
   border: 3px solid black;
   padding: 10px;
   font-size: large;
-  background: var(--tenne-tawny);
+  background: var(--bronze);
 }
 
-/* .lead {
-  font-size: 30px;
-  font-family: Fantasy;
-} */
-/*  */
 .btn {
-  font-family: inherit;
   cursor: pointer;
-  outline: 0;
 }
 
 .title {
@@ -35,8 +25,6 @@ body {
   margin-bottom: 10px;
   text-align: center;
 }
-
-/*  */
 
 .meal-wrapper {
   max-width: 1280px;
@@ -48,9 +36,7 @@ body {
 .meal-search {
   margin: 0;
 }
-.meal-search cite {
-  font-size: 1rem;
-}
+
 .search-container {
   margin: 1.2rem 0;
   display: flex;
@@ -68,17 +54,13 @@ body {
 
 .search-btn {
   width: 40px;
-  background: var(--tenne-tawny);
+  background: var(--bronze);
   color: #fff;
   border: none;
 }
 
 #meal {
-  margin: 0px auto;
   text-align: center;
-  justify-content: center;
-  background-color: white;
-  padding: 10px;
 }
 .meal-item {
   overflow: hidden;
@@ -97,7 +79,7 @@ body {
 .recipe-btn {
   text-align: center;
   color: white;
-  background: var(--tenne-tawny);
+  background: var(--bronze);
   font-weight: 500;
   padding: 5px 0;
   display: block;
@@ -112,7 +94,7 @@ body {
   left: 50%;
   /* center recipe */
   transform: translate(-50%, -50%);
-  background: var(--tenne-tawny);
+  background: var(--bronze);
   border-radius: 1rem;
   width: 80%;
   height: 80%;
@@ -133,11 +115,7 @@ body {
   font-size: 20px;
   background: white;
   border: none;
-  width: 35px;
-  height: 35px;
   border-radius: 50%;
-  align-items: center;
-  justify-content: center;
   padding-top: 3px;
   top: 5px;
 }
@@ -150,7 +128,7 @@ body {
 }
 .recipe-meal-img img {
   width: 300px;
-  height: auto;
+  /* height: auto; */
   margin: 0px auto;
   display: block;
   max-width: 100%;

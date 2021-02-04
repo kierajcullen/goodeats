@@ -1,18 +1,30 @@
+// declare variables at the top
 var searchBtn = document.getElementById("search-btn");
-var mealList = document.getElementById("meal");
+var instructions = document.getElementById("meal");
 var mealDetailsContent = document.querySelector(".meal-details-content");
 var recipeClose = document.getElementById("close-recipe");
+var previousSearches = [];
+var storageSearches = JSON.parse(localStorage.getItem("searches"));
+
+// check if the local storage exists (check true or false)
+//if true, reset to storage searches value
+if (storageSearches) {
+  // "resetting" array, getting new items from local storage
+  // === checks equality
+  // = reassigns variable
+  previousSearches = storageSearches;
+}
 
 // event listeners
 searchBtn.addEventListener("click", function (event) {
   console.log(event.target);
   console.log("searchBtn");
-  getMealList(event);
+  getRecipeList(event);
 });
-mealList.addEventListener("click", function (event) {
+instructions.addEventListener("click", function (event) {
   console.log(event.target);
-  console.log("mealList");
-  getMealRecipe(event);
+  console.log("instructions");
+  getInstructions(event);
 });
 //gives you the ability to x out of recipe information
 recipeClose.addEventListener("click", (event) => {
@@ -23,41 +35,51 @@ recipeClose.addEventListener("click", (event) => {
 
 // https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
 // get meal list that matches with the ingredients
-function getMealList() {
+function getRecipeList() {
   var searchInputTxt = document.getElementById("user-ingredient").value.trim();
+  // add to array, for local storage purposes
+  previousSearches.push(searchInputTxt);
+  // make an array with local storage, user search history
+  // searches=key value=array
+  localStorage.setItem("searches", JSON.stringify(previousSearches));
   fetch(
+    // use one as the api key
+    // fetch this call
     `https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInputTxt}`
   )
     // use arrow function, replace traditional function
-    .then((response) => response.json())
+    .then((results) => results.json())
     .then((data) => {
       let html = "";
       if (data.meals) {
         data.meals.forEach((meal) => {
           html += `
                     <div class = "meal-item" data-id = "${meal.idMeal}">
-                        <div class = "meal-img">
+                        <div class = "recipe-img">
                             <img src = "${meal.strMealThumb}" alt = "food">
                         </div>
                         <div class = "meal-name">
                             <h3>${meal.strMeal}</h3>
-                            <a href = "#" class = "recipe-btn">View Details</a>
+                            <a href = "" class = "recipe-btn">View Details</a>
                         </div>
                     </div>
                 `;
         });
         console.log(meal);
-        mealList.classList.remove("notFound");
+        instructions.classList.remove("notFound");
       } else {
         html = "Couldn't find any recipes. Try again.";
-        mealList.classList.add("notFound");
+        instructions.classList.add("notFound");
       }
-      mealList.innerHTML = html;
+      instructions.innerHTML = html;
     });
 }
 
-// get recipe of the meal
-function getMealRecipe(event) {
+// add to local storage
+
+// get recipe instructions
+function getInstructions(event) {
+  // if you click view details, which displays the instructions, title and picture (potentially grab new items)
   if (event.target.classList.contains("recipe-btn")) {
     // make sure that what your clicking is the recipe-btn before preventDefault
     event.preventDefault();
@@ -66,9 +88,10 @@ function getMealRecipe(event) {
     fetch(
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`
     )
-      .then((response) => response.json())
+      // turns api call into an object
+      .then((results) => results.json())
       // gets the modal to appear
-      .then((data) => RecipeModal(data.meals));
+      .then((data) => recipeModal(data.meals));
   }
 }
 
@@ -79,6 +102,12 @@ function searchRecipe() {
   if (recipeSearch === "") {
     return;
   }
+  // adding to previous search array, override in local storage
+  // add as many things as you want and override with the previous value
+  previousSearches.push(recipeSearch);
+  // make an array with local storage, user search history
+  // searches=key value=array
+  localStorage.setItem("searches", JSON.stringify(previousSearches));
   getRecipe(recipeSearch);
   console.log(recipeSearch);
 }
@@ -110,7 +139,7 @@ function getRecipe(search) {
         console.log(meals[i].recipe.url);
         html += `
                     <div class = "meal-item">
-                        <div class = "meal-img">
+                        <div class = "recipe-img">
                             <img src = "${meals[i].recipe.image}" alt = "food">
                         </div>
                         <div class = "meal-name">
@@ -121,18 +150,37 @@ function getRecipe(search) {
                 `;
       }
       console.log(meals);
-      mealList.classList.remove("notFound");
+      instructions.classList.remove("notFound");
     } else {
       html = "Couldn't find any recipes. Try again.";
-      mealList.classList.add("notFound");
+      instructions.classList.add("notFound");
     }
-    mealList.innerHTML = html;
+    instructions.innerHTML = html;
   });
 }
 
 $("#recipe-search-btn").on("click", searchRecipe);
+$("#recipe-history-btn").on("click", showHistory);
+$("#hide-search").on("click", function () {
+  $("#recipe-history").html("");
+});
+// search by ingredient modal
 
-function RecipeModal(meal) {
+function showHistory(event) {
+  event.preventDefault();
+  if (storageSearches) {
+    // "resetting" array, getting new items from local storage
+    // === checks equality
+    // = reassigns variable
+    previousSearches = storageSearches;
+  }
+  for (var i = 0; i < previousSearches.length; i++) {
+    var search = $("<li>").text(previousSearches[i]);
+    $("#recipe-history").append(search);
+  }
+}
+
+function recipeModal(meal) {
   console.log(meal);
   meal = meal[0];
   var html = `
