@@ -56,7 +56,7 @@ function getRecipeList() {
     // use arrow function, replace traditional function
     .then((results) => results.json())
     .then((data) => {
-      let html = "";
+      var html = "";
       if (data.meals) {
         data.meals.forEach((meal) => {
           // display recipe image when searching by ingredient
@@ -90,7 +90,7 @@ function getInstructions(event) {
   if (event.target.classList.contains("recipe-btn")) {
     // make sure that what your clicking is the recipe-btn before preventDefault
     event.preventDefault();
-    let mealItem = event.target.parentElement.parentElement;
+    var mealItem = event.target.parentElement.parentElement;
     console.log(mealItem);
     fetch(
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`
@@ -139,7 +139,7 @@ function getRecipe(search) {
     // $(".recipes").text(response.hits);
     console.log(response.hits);
     var meals = response.hits;
-    let html = "";
+    var html = "";
     if (meals) {
       for (var i = 0; i < meals.length; i++) {
         // if (data.meals) {
@@ -205,5 +205,5 @@ function recipeModal(meal) {
     `;
   // change content of meal detail content
   recipeDetailsContent.innerHTML = html;
-  recipeDetailsContent.parentElement.classList.add("showRecipe");
+  DetailsContent.parentElement.classList.add("showRecipe");
 }
