@@ -1,8 +1,6 @@
-* {
-  justify-content: center;
-}
 :root {
-  --tenne-tawny: #bf6900;
+  --bronze: #bf6900;
+  /* font-family: Fantasy; */
 }
 
 body {
@@ -14,21 +12,17 @@ body {
   text-align: center;
   color: white;
   border: 3px solid black;
+  border-radius: 20px;
   padding: 10px;
   font-size: large;
   background: var(--tenne-tawny);
   border-radius: 20px;
+  font-size: xx-large;
+  background: var(--bronze);
 }
 
-/* .lead {
-  font-size: 30px;
-  font-family: Fantasy;
-} */
-/*  */
 .btn {
-  font-family: inherit;
   cursor: pointer;
-  outline: 0;
 }
 
 .title {
@@ -36,8 +30,6 @@ body {
   margin-bottom: 10px;
   text-align: center;
 }
-
-/*  */
 
 .meal-wrapper {
   max-width: 1280px;
@@ -49,14 +41,13 @@ body {
 .meal-search {
   margin: 0;
 }
-.meal-search cite {
-  font-size: 1rem;
-}
+
 .search-container {
   margin: 1.2rem 0;
   display: flex;
   justify-content: center;
   border-radius: 10px;
+  font-size: large;
 }
 .search-recipe,
 .search-btn {
@@ -71,17 +62,15 @@ body {
 
 .search-btn {
   width: 40px;
-  background: var(--tenne-tawny);
+  background: var(--bronze);
   color: #fff;
   border: none;
+  border-radius: 20px;
 }
 
 #meal {
-  margin: 0px auto;
   text-align: center;
-  justify-content: center;
-  background-color: white;
-  padding: 10px;
+  padding: 30px;
 }
 .meal-item {
   overflow: hidden;
@@ -100,7 +89,7 @@ body {
 .recipe-btn {
   text-align: center;
   color: white;
-  background: var(--tenne-tawny);
+  background: var(--bronze);
   font-weight: 500;
   padding: 5px 0;
   display: block;
@@ -115,7 +104,7 @@ body {
   left: 50%;
   /* center recipe */
   transform: translate(-50%, -50%);
-  background: var(--tenne-tawny);
+  background: var(--bronze);
   border-radius: 1rem;
   width: 80%;
   height: 80%;
@@ -136,16 +125,14 @@ body {
   font-size: 20px;
   background: white;
   border: none;
-  width: 35px;
-  height: 35px;
   border-radius: 50%;
-  align-items: center;
-  justify-content: center;
   padding-top: 3px;
   top: 5px;
 }
-.recipe-title {
+.recipe-title,
+li {
   text-transform: capitalize;
+  padding: 10px;
 }
 
 .recipe-instructions {
@@ -153,7 +140,7 @@ body {
 }
 .recipe-meal-img img {
   width: 300px;
-  height: auto;
+  /* height: auto; */
   margin: 0px auto;
   display: block;
   max-width: 100%;
@@ -167,4 +154,12 @@ h1 {
 }
 .fas {
   font-size: 40px;
+}
+footer {
+  text-align: center;
+}
+#recipe-history-btn,
+#hide-search {
+  border-radius: 20px;
+  font-size: large;
 }
