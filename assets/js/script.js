@@ -1,13 +1,19 @@
 // declare variables at the top
+// both search buttons have the same class
 var searchBtn = document.getElementById("search-btn");
 var instructions = document.getElementById("recipe");
 var recipeDetailsContent = document.querySelector(".recipe-details-content");
+// id of meal for recipe search results
+var instructions = document.getElementById("meal");
+var mealDetailsContent = document.querySelector(".meal-details-content");
 var recipeClose = document.getElementById("close-recipe");
+// push local storage to this empty array, don't forget to stringify and parse the information (depending upon which way you're working)
 var previousSearches = [];
+// construct the javascript value or object
 var storageSearches = JSON.parse(localStorage.getItem("searches"));
 
 // check if the local storage exists (check true or false)
-//if true, reset to storage searches value
+// if true, reset to storage searches value
 if (storageSearches) {
   // "resetting" array, getting new items from local storage
   // === checks equality
@@ -15,7 +21,8 @@ if (storageSearches) {
   previousSearches = storageSearches;
 }
 
-// event listeners
+// event listeners, listening for that CLICK... check out those closer to the bottom of the page
+// make sure we are targeting the right thing
 searchBtn.addEventListener("click", function (event) {
   console.log(event.target);
   console.log("searchBtn");
@@ -58,6 +65,7 @@ function getRecipeList() {
         // forEach method calls a function once for each element in an array, in order (w3 schools)
         //array elements must have a value of the function will not execute
         data.meals.forEach((meal) => {
+          // display recipe image when searching by ingredient
           html += `
                     <div class = "recipe-item" data-id = "${meal.idMeal}">
                         <div class = "recipe-img">
@@ -94,8 +102,10 @@ function getInstructions(event) {
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`
     )
       // turns api call into an object
+      // results, response etc. are interchangeable
       .then((results) => results.json())
       // gets the modal to appear
+      // look at style sheet for display styling, particularly display block and display none
       .then((data) => recipeModal(data.meals));
   }
 }
@@ -163,6 +173,7 @@ function getRecipe(search) {
   });
 }
 
+// event handler
 $("#recipe-search-btn").on("click", searchRecipe);
 $("#recipe-history-btn").on("click", showHistory);
 $("#hide-search").on("click", function () {
