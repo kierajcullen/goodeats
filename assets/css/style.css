@@ -68,18 +68,18 @@ body {
   text-align: center;
   padding: 30px;
 }
-.meal-item {
+.recipe-item {
   overflow: hidden;
   box-shadow: 0 4px 21px -10px black;
   margin: 20px 0;
 }
 
-.meal-name h3 {
+.recipe-name h3 {
   font-size: 1.4rem;
   text-transform: capitalize;
 }
 
-.meal-name {
+.recipe-name {
   margin-bottom: 3%;
 }
 .recipe-btn {
@@ -112,7 +112,7 @@ body {
   display: block;
 }
 
-.meal-details-content {
+.recipe-details-content {
   text-align: center;
 }
 .close-recipe {
@@ -148,4 +148,5 @@ footer {
 #hide-search {
   border-radius: 20px;
   font-size: large;
+  margin-bottom: 20px;
 }

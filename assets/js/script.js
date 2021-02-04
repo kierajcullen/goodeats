@@ -4,7 +4,7 @@ var searchBtn = document.getElementById("search-btn");
 // id of meal for recipe search results
 var instructions = document.getElementById("meal");
 
-var mealDetailsContent = document.querySelector(".meal-details-content");
+var recipeDetailsContent = document.querySelector(".recipe-details-content");
 var recipeClose = document.getElementById("close-recipe");
 // push local storage to this empty array, don't forget to stringify and parse the information (depending upon which way you're working)
 var previousSearches = [];
@@ -36,7 +36,7 @@ instructions.addEventListener("click", function (event) {
 recipeClose.addEventListener("click", (event) => {
   console.log(event.target);
   console.log("recipeClose");
-  mealDetailsContent.parentElement.classList.remove("showRecipe");
+  recipeDetailsContent.parentElement.classList.remove("showRecipe");
 });
 
 // https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
@@ -61,11 +61,11 @@ function getRecipeList() {
         data.meals.forEach((meal) => {
           // display recipe image when searching by ingredient
           html += `
-                    <div class = "meal-item" data-id = "${meal.idMeal}">
+                    <div class = "recipe-item" data-id = "${meal.idMeal}">
                         <div class = "recipe-img">
                             <img src = "${meal.strMealThumb}" alt = "food">
                         </div>
-                        <div class = "meal-name">
+                        <div class = "recipe-title">
                             <h3>${meal.strMeal}</h3>
                             <a href = "" class = "recipe-btn">View Details</a>
                         </div>
@@ -147,11 +147,11 @@ function getRecipe(search) {
         //make the url accessible in here to avoid making another id call
         console.log(meals[i].recipe.url);
         html += `
-                    <div class = "meal-item">
+                    <div class = "recipe-item">
                         <div class = "recipe-img">
                             <img src = "${meals[i].recipe.image}" alt = "food">
                         </div>
-                        <div class = "meal-name">
+                        <div class = "recipe-title">
                             <h3>${meals[i].recipe.label}</h3>
                               <a href="${meals[i].recipe.url}" target="_blank">Click Here For Recipe Information</a>
                         </div>
@@ -204,6 +204,6 @@ function recipeModal(meal) {
         </div>
     `;
   // change content of meal detail content
-  mealDetailsContent.innerHTML = html;
-  mealDetailsContent.parentElement.classList.add("showRecipe");
+  recipeDetailsContent.innerHTML = html;
+  recipeDetailsContent.parentElement.classList.add("showRecipe");
 }
