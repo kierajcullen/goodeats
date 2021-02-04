@@ -1,13 +1,18 @@
 // declare variables at the top
+// both search buttons have the same class
 var searchBtn = document.getElementById("search-btn");
+// id of meal for recipe search results
 var instructions = document.getElementById("meal");
+
 var mealDetailsContent = document.querySelector(".meal-details-content");
 var recipeClose = document.getElementById("close-recipe");
+// push local storage to this empty array, don't forget to stringify and parse the information (depending upon which way you're working)
 var previousSearches = [];
+// construct the javascript value or object
 var storageSearches = JSON.parse(localStorage.getItem("searches"));
 
 // check if the local storage exists (check true or false)
-//if true, reset to storage searches value
+// if true, reset to storage searches value
 if (storageSearches) {
   // "resetting" array, getting new items from local storage
   // === checks equality
@@ -15,7 +20,8 @@ if (storageSearches) {
   previousSearches = storageSearches;
 }
 
-// event listeners
+// event listeners, listening for that CLICK... check out those closer to the bottom of the page
+// make sure we are targeting the right thing
 searchBtn.addEventListener("click", function (event) {
   console.log(event.target);
   console.log("searchBtn");
@@ -53,6 +59,7 @@ function getRecipeList() {
       let html = "";
       if (data.meals) {
         data.meals.forEach((meal) => {
+          // display recipe image when searching by ingredient
           html += `
                     <div class = "meal-item" data-id = "${meal.idMeal}">
                         <div class = "recipe-img">
@@ -159,6 +166,7 @@ function getRecipe(search) {
   });
 }
 
+// event handler
 $("#recipe-search-btn").on("click", searchRecipe);
 $("#recipe-history-btn").on("click", showHistory);
 $("#hide-search").on("click", function () {
