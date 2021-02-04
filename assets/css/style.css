@@ -28,17 +28,6 @@ body {
   text-align: center;
 }
 
-.meal-wrapper {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 10px;
-  background: white;
-  text-align: center;
-}
-.meal-search {
-  margin: 0;
-}
-
 .search-container {
   margin: 1.2rem 0;
   display: flex;
@@ -101,11 +90,10 @@ body {
   /* center recipe */
   transform: translate(-50%, -50%);
   background: var(--bronze);
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
   width: 80%;
   height: 80%;
   display: none;
-  padding: 0;
 }
 
 .showRecipe {
@@ -147,6 +135,9 @@ footer {
 #recipe-history-btn,
 #hide-search {
   border-radius: 20px;
+  border: none;
   font-size: large;
   margin-bottom: 20px;
+  background: var(--bronze);
+  color: white;
 }
