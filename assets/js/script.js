@@ -96,8 +96,10 @@ function getInstructions(event) {
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`
     )
       // turns api call into an object
+      // results, response etc. are interchangeable
       .then((results) => results.json())
       // gets the modal to appear
+      // look at style sheet for display styling, particularly display block and display none
       .then((data) => recipeModal(data.meals));
   }
 }
