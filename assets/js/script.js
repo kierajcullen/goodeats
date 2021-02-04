@@ -1,7 +1,7 @@
 // declare variables at the top
 var searchBtn = document.getElementById("search-btn");
-var instructions = document.getElementById("meal");
-var mealDetailsContent = document.querySelector(".meal-details-content");
+var instructions = document.getElementById("recipe");
+var recipeDetailsContent = document.querySelector(".recipe-details-content");
 var recipeClose = document.getElementById("close-recipe");
 var previousSearches = [];
 var storageSearches = JSON.parse(localStorage.getItem("searches"));
@@ -23,6 +23,7 @@ searchBtn.addEventListener("click", function (event) {
 });
 instructions.addEventListener("click", function (event) {
   console.log(event.target);
+  // targeting recipe-result
   console.log("instructions");
   getInstructions(event);
 });
@@ -30,7 +31,7 @@ instructions.addEventListener("click", function (event) {
 recipeClose.addEventListener("click", (event) => {
   console.log(event.target);
   console.log("recipeClose");
-  mealDetailsContent.parentElement.classList.remove("showRecipe");
+  recipeDetailsContent.parentElement.classList.remove("showRecipe");
 });
 
 // https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
@@ -48,24 +49,28 @@ function getRecipeList() {
     `https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInputTxt}`
   )
     // use arrow function, replace traditional function
+    // results, response etc. is interchange
+    // using that meal database eyy
     .then((results) => results.json())
     .then((data) => {
-      let html = "";
+      var html = "";
       if (data.meals) {
+        // forEach method calls a function once for each element in an array, in order (w3 schools)
+        //array elements must have a value of the function will not execute
         data.meals.forEach((meal) => {
           html += `
-                    <div class = "meal-item" data-id = "${meal.idMeal}">
+                    <div class = "recipe-item" data-id = "${meal.idMeal}">
                         <div class = "recipe-img">
                             <img src = "${meal.strMealThumb}" alt = "food">
                         </div>
-                        <div class = "meal-name">
+                        <div class = "recipe-name">
                             <h3>${meal.strMeal}</h3>
                             <a href = "" class = "recipe-btn">View Details</a>
                         </div>
                     </div>
                 `;
         });
-        console.log(meal);
+        console.log(recipe);
         instructions.classList.remove("notFound");
       } else {
         html = "Couldn't find any recipes. Try again.";
@@ -83,7 +88,7 @@ function getInstructions(event) {
   if (event.target.classList.contains("recipe-btn")) {
     // make sure that what your clicking is the recipe-btn before preventDefault
     event.preventDefault();
-    let mealItem = event.target.parentElement.parentElement;
+    var mealItem = event.target.parentElement.parentElement;
     console.log(mealItem);
     fetch(
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`
@@ -130,19 +135,18 @@ function getRecipe(search) {
     // $(".recipes").text(response.hits);
     console.log(response.hits);
     var meals = response.hits;
-    let html = "";
+    var html = "";
     if (meals) {
       for (var i = 0; i < meals.length; i++) {
-        // if (data.meals) {
-        //   data.meals.forEach((meal) => {
         //make the url accessible in here to avoid making another id call
         console.log(meals[i].recipe.url);
+        // add value to html
         html += `
-                    <div class = "meal-item">
+                    <div class = "recipe-item">
                         <div class = "recipe-img">
                             <img src = "${meals[i].recipe.image}" alt = "food">
                         </div>
-                        <div class = "meal-name">
+                        <div class = "recipe-name">
                             <h3>${meals[i].recipe.label}</h3>
                               <a href="${meals[i].recipe.url}" target="_blank">Click Here For Recipe Information</a>
                         </div>
@@ -182,18 +186,19 @@ function showHistory(event) {
 
 function recipeModal(meal) {
   console.log(meal);
-  meal = meal[0];
+  // set var to an empty array at the start of the function, clear existing array
+  var meal = meal[0];
   var html = `
         <h2 class = "recipe-title">${meal.strMeal}</h2>
         <div class = "recipe-instructions">
             <h3>Instructions:</h3>
             <p>${meal.strInstructions}</p>
         </div>
-        <div class = "recipe-meal-img">
+        <div class = "recipe-img">
             <img src = "${meal.strMealThumb}" alt = "recipe-image">
         </div>
     `;
   // change content of meal detail content
-  mealDetailsContent.innerHTML = html;
-  mealDetailsContent.parentElement.classList.add("showRecipe");
+  recipeDetailsContent.innerHTML = html;
+  recipeDetailsContent.parentElement.classList.add("showRecipe");
 }
