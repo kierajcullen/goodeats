@@ -8,7 +8,7 @@ https://github.com/kierajcullen/goodeats
 https://kierajcullen.github.io/goodeats/
 
 # Webpage
-![](img/goodeats.png)
+![](img/goodeats.gif)
 
 
 
