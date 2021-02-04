@@ -15,62 +15,59 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-        <header class="jumbotron">
-          <h1>Good Eats</h1>
-          <i class="fas fa-pepper-hot"></i>
-          <p class="lead">
-            An easy to use tool to search for a recipe and eliminate waste from your
-            fridge or pantry!
-          </p>
-        </header>
-        <div class="search-container">
-          <input
-            type="text"
-            class="search-container"
-            placeholder="Search By Ingredient"
-            id="user-ingredient"
-          />
-          <button type="submit" class="search-btn btn" id="search-btn">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
+    <header class="jumbotron">
+      <h1>Good Eats</h1>
+      <i class="fas fa-pepper-hot"></i>
+      <p class="lead">
+        An easy to use tool to search for a recipe and eliminate waste from your
+        fridge or pantry!
+      </p>
+    </header>
+    <div class="search-container">
+      <input
+        type="text"
+        class="search-container"
+        placeholder="Search By Ingredient"
+        id="user-ingredient"
+      />
+      <button type="submit" class="search-btn btn" id="search-btn">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
 
-        <div class="search-container">
-          <input
-            type="text"
-            class="search-container"
-            placeholder="Search By Recipe"
-            id="user-recipe"
-          />
-          <button type="submit" class="search-btn btn" id="recipe-search-btn">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
+    <div class="search-container">
+      <input
+        type="text"
+        class="search-container"
+        placeholder="Search By Recipe Title"
+        id="user-recipe"
+      />
+      <button type="submit" class="search-btn btn" id="recipe-search-btn">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
 
-        <div class="recipe-result" id="meal">
-          </div>
-        </div>
-
-        <div class="recipe-details">
-          <!-- recipe close btn -->
-          <button
-            type="button"
-            class="btn close-recipe"
-            id="close-recipe"
-          >
-            <i class="fas fa-times"></i>
-          </button>
-          <div class="meal-details-content">
-            <h2 class="recipe-title">Meals Name Here</h2>
-            <div class="recipe-instructions">
-              <h3>Instructions:</h3>
-              <p></p>
-              <p></p>
-            </div>
-          </div>
+    <div class="recipe-result" id="meal"></div>
+    <!-- this is the modal, see details in css -->
+    <div class="recipe-details">
+      <!-- recipe close btn -->
+      <button type="button" class="btn close-recipe" id="close-recipe">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="meal-details-content">
+        <h2 class="recipe-title">Meals Name Here</h2>
+        <div class="recipe-instructions">
+          <h3>Instructions:</h3>
+          <!-- <p></p>
+              <p></p> -->
         </div>
       </div>
     </div>
+    <footer>
+      <div id="recipe-history"></div>
+      <button id="recipe-history-btn">Search History</button>
+      <button id="hide-search">Hide Search</button>
+    </footer>
     <script src="assets/js/script.js"></script>
   </body>
 </html>

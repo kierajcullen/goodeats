@@ -1,5 +1,5 @@
 :root {
-  --tenne-tawny: #bf6900;
+  --bronze: #bf6900;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
   border: 3px solid black;
   padding: 10px;
   font-size: large;
-  background: var(--tenne-tawny);
+  background: var(--bronze);
 }
 
 .btn {
@@ -54,7 +54,7 @@ body {
 
 .search-btn {
   width: 40px;
-  background: var(--tenne-tawny);
+  background: var(--bronze);
   color: #fff;
   border: none;
 }
@@ -79,7 +79,7 @@ body {
 .recipe-btn {
   text-align: center;
   color: white;
-  background: var(--tenne-tawny);
+  background: var(--bronze);
   font-weight: 500;
   padding: 5px 0;
   display: block;
@@ -94,7 +94,7 @@ body {
   left: 50%;
   /* center recipe */
   transform: translate(-50%, -50%);
-  background: var(--tenne-tawny);
+  background: var(--bronze);
   border-radius: 1rem;
   width: 80%;
   height: 80%;
