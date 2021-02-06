@@ -82,8 +82,6 @@ function getRecipeList() {
     });
 }
 
-// add to local storage
-
 // get recipe instructions
 function getInstructions(event) {
   // if you click view details, which displays the instructions, title and picture (potentially grab new items)
@@ -124,7 +122,6 @@ function searchRecipe() {
 function getRecipe(search) {
   // empty out the whole div
   $(".recipe-return").empty();
-
   var appKey = "f6ebefb8e953ba8b5064c032bfe9e61f";
   var appID = "e24e99ff";
   // var queryURL = weatherAPI + "q=" + search + units + APIkey;
@@ -205,5 +202,5 @@ function recipeModal(meal) {
     `;
   // change content of meal detail content
   recipeDetailsContent.innerHTML = html;
-  DetailsContent.parentElement.classList.add("showRecipe");
+  recipeDetailsContent.parentElement.classList.add("showRecipe");
 }
